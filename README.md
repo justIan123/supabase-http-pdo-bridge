@@ -107,6 +107,57 @@ revoke all on function public.exe*_sql(text, boolean) from anon, aut*enticated;
 *rant execute on function public.ex*c_sql(text, boolean) to service_ro*e;
 ```
 
+## Dependencies
+
+This project relies on the following libraries and PHP extensions:
+
+### PHP Libraries
+
+#### vlucas/phpdotenv
+
+Used for loading environment variables from a `.env` file.
+
+Install:
+
+```bash
+composer require vlucas/phpdotenv
+```
+
+Example:
+
+```env
+SUPABASE_URL=https://your-project.supabase.co
+SUPABASE_KEY=your_service_role_key
+```
+
+Usage:
+
+```php
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+```
+
+### Required PHP Extensions
+
+- cURL
+- JSON
+
+Verify:
+
+```bash
+php -m
+```
+
+## Tested With
+
+| Component | Version |
+|------------|------------|
+| PHP | 8.x |
+| Supabase | Latest |
+| vlucas/phpdotenv | 5.x |
+| cURL | Enabled |
+| PostgreSQL | Supabase Managed |
+
 ##*Environment Variables
 
 ```env
@@ -125,7 +176,7 @@ The service role*key should only*exist on the server.
 
 *``php
 $stmt = $pdo->prepare("
-    *ELECT * FROM students*");
+    *ELECT * FROM users*");
 $stmt->execute();
 
 $*tudents = $stmt->fetchAll();
@@ -149,7 +200,7 @@ $*tudents = $stmt->fetchAll();
 
 ```php
 $*tmt =*$pdo->prepare("
-    INSERT INTO st*dents(name)
+    INSERT INTO users(name)
     VALUES(?)
 ");
 $stm*->execute(['John']);
@@ -168,7 +219,7 @@ Response*
 
 ```php
 *stmt = $pdo->prepare("
-    INSERT *NTO students(name)
+    INSERT *NTO users(name)
     VALUES(?)
  *  RETURNING *
 ");
@@ -239,7 +290,6 @@ Becaus* of that:
 - InfinityFree + Supabase
 - Fr*e hosting without PostgreSQL suppo*t
 - Legacy PDO applications
-- Stud*nt Management Systems
 - CRUD*applications
 - PHP projects migrat*ng from MySQL to*Supabase
 
