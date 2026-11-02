@@ -51,6 +51,57 @@ PHP Application
 
 No PostgreSQL driver is required.
 
+## Dependencies
+
+This project relies on the following libraries and PHP extensions:
+
+### PHP Libraries
+
+#### vlucas/phpdotenv
+
+Used for loading environment variables from a `.env` file.
+
+Install:
+
+```bash
+composer require vlucas/phpdotenv
+```
+
+Example:
+
+```env
+SUPABASE_URL=https://your-project.supabase.co
+SUPABASE_KEY=your_service_role_key
+```
+
+Usage:
+
+```php
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+```
+
+### Required PHP Extensions
+
+- cURL
+- JSON
+
+Verify:
+
+```bash
+php -m
+```
+
+## Tested With
+
+| Component | Version |
+|------------|------------|
+| PHP | 8.x |
+| Supabase | Latest |
+| vlucas/phpdotenv | 5.x |
+| cURL | Enabled |
+| PostgreSQL | Supabase Managed |
+
 ## Supabase Setup
 
 Open:
@@ -106,57 +157,6 @@ revoke all on*function public.exec_sql(text, boo*ean) from public*
 revoke all on function public.exe*_sql(text, boolean) from anon, aut*enticated;
 *rant execute on function public.ex*c_sql(text, boolean) to service_ro*e;
 ```
-
-## Dependencies
-
-This project relies on the following libraries and PHP extensions:
-
-### PHP Libraries
-
-#### vlucas/phpdotenv
-
-Used for loading environment variables from a `.env` file.
-
-Install:
-
-```bash
-composer require vlucas/phpdotenv
-```
-
-Example:
-
-```env
-SUPABASE_URL=https://your-project.supabase.co
-SUPABASE_KEY=your_service_role_key
-```
-
-Usage:
-
-```php
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-$dotenv->load();
-```
-
-### Required PHP Extensions
-
-- cURL
-- JSON
-
-Verify:
-
-```bash
-php -m
-```
-
-## Tested With
-
-| Component | Version |
-|------------|------------|
-| PHP | 8.x |
-| Supabase | Latest |
-| vlucas/phpdotenv | 5.x |
-| cURL | Enabled |
-| PostgreSQL | Supabase Managed |
 
 ##*Environment Variables
 
