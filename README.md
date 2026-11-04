@@ -83,8 +83,9 @@ $dotenv->load();
 
 Install:
 
+```bash
 https://curl.se/ca/cacert.pem.
-
+```
 if you are using Hopwebx for converting the website into a app or
 if you are using PhpDesktop for converting the website into a desktop
 
