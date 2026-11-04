@@ -53,7 +53,7 @@ No PostgreSQL driver is required.
 
 ## Dependencies
 
-This project relies on the following libraries and PHP extensions:
+This project relies on the following libraries and PHP extensions and other files:
 
 ### PHP Libraries
 
@@ -80,6 +80,15 @@ Usage:
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 ```
+
+Install:
+
+https://curl.se/ca/cacert.pem.
+
+if you are using Hopwebx for converting the website into a app or
+if you are using PhpDesktop for converting the website into a desktop
+
+move the cacert.pem in the same folder as the db_supabase
 
 ### Required PHP Extensions
 
